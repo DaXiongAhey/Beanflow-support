@@ -16,9 +16,9 @@
     h3{ margin:18px 0 8px; font-size:1.05rem; }
     p,li{ margin:8px 0; }
     a{ color:var(--accent); text-decoration:none; }
-    .topbar{ display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:18px; padding-bottom:14px; border-bottom:1px solid var(--border); }
+    .topbar{ display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:18px; padding-bottom:14px; border-bottom:1px solid var(--border); flex-wrap:wrap; }
     .badge{ font-size:.9rem; color:var(--muted); }
-    .lang{ display:flex; gap:8px; }
+    .lang{ display:flex; gap:8px; flex-wrap:wrap; }
     .btn{
       appearance:none; border:1px solid var(--border); background:transparent; color:var(--fg);
       padding:8px 10px; border-radius:10px; cursor:pointer; font-size:.95rem;
@@ -43,13 +43,15 @@
       <p class="kicker">Cloudflare Pages · Static</p>
     </div>
     <div class="lang" role="group" aria-label="Language Switch">
-      <button class="btn" id="btn-zh" aria-pressed="false">中文</button>
+      <button class="btn" id="btn-zh-hans" aria-pressed="false">简体中文</button>
       <button class="btn" id="btn-en" aria-pressed="false">EN</button>
+      <button class="btn" id="btn-zh-hant" aria-pressed="false">繁體中文</button>
+      <button class="btn" id="btn-ja" aria-pressed="false">日本語</button>
     </div>
   </div>
 
-  <!-- 中文 -->
-  <section data-lang="zh">
+  <!-- 简体中文 -->
+  <section data-lang="zh-Hans">
     <h1>BeanFlow 支持</h1>
     <p>欢迎使用 <strong>BeanFlow</strong> —— 一款受 Beancount 启发的现代复式记账应用。BeanFlow 支持 iPhone、iPad、Mac 与 Apple Watch，并提供可选的 Beancount 导入/导出。</p>
 
@@ -126,30 +128,126 @@
     <p><a href="privacy.html">Privacy Policy →</a></p>
   </section>
 
+  <!-- 繁體中文 -->
+  <section data-lang="zh-Hant">
+    <h1>BeanFlow 支援</h1>
+    <p>歡迎使用 <strong>BeanFlow</strong> —— 一款受 Beancount 啟發的現代複式記帳應用。BeanFlow 支援 iPhone、iPad、Mac 與 Apple Watch，並提供可選的 Beancount 匯入/匯出。</p>
+
+    <div class="card">
+      <h2>📬 聯絡方式</h2>
+      <p>需要協助、回報 Bug 或提出建議，請聯絡我們：</p>
+      <ul>
+        <li>信箱：<a href="mailto:yangkunkun686@gmail.com">yangkunkun686@gmail.com</a></li>
+      </ul>
+      <p class="muted">通常於 1–3 個工作日回覆。</p>
+    </div>
+
+    <h2>❓ 常見問題</h2>
+
+    <h3>1) BeanFlow 是否必須依賴 Beancount 檔案？</h3>
+    <p><strong>不是。</strong> BeanFlow 是獨立的複式記帳 App。Beancount 僅用於可選的匯入/匯出，日常使用對 .bean 檔「無感」。</p>
+
+    <h3>2) 支援哪些平台？</h3>
+    <ul>
+      <li>iOS（iPhone）</li>
+      <li>iPadOS</li>
+      <li>macOS</li>
+      <li>watchOS（用於快速查看彙總資料）</li>
+    </ul>
+
+    <h3>3) Apple Watch 為什麼主要顯示彙總？</h3>
+    <p>手錶端以「快速查看」為主：收入、支出、投資盈虧、負債等數字；複雜編輯與圖表分析建議在 iPhone/iPad/Mac 完成。</p>
+
+    <h3>4) 資料安全嗎？</h3>
+    <p>帳本資料僅儲存在裝置本地或你的 iCloud 私有資料庫（若你啟用同步）。BeanFlow 不會收集、上傳或分析你的財務資料。</p>
+
+    <h3>5) 支援 CSV / Beancount 匯出嗎？</h3>
+    <p>支援。CSV 可用於 Excel/Numbers/Sheets。Beancount 匯出支援單檔與多檔案結構匯出。</p>
+
+    <p><a href="privacy.html">查看隱私政策 →</a></p>
+  </section>
+
+  <!-- 日本語 -->
+  <section data-lang="ja">
+    <h1>BeanFlow サポート</h1>
+    <p><strong>BeanFlow</strong> へようこそ。BeanFlow は Beancount に着想を得た、モダンな複式簿記アプリです。iPhone / iPad / Mac / Apple Watch に対応し、Beancount のインポート/エクスポート（任意）を提供します。</p>
+
+    <div class="card">
+      <h2>📬 お問い合わせ</h2>
+      <p>サポート、バグ報告、ご意見はこちら：</p>
+      <ul>
+        <li>Email: <a href="mailto:yangkunkun686@gmail.com">yangkunkun686@gmail.com</a></li>
+      </ul>
+      <p class="muted">通常 1〜3 営業日以内に返信します。</p>
+    </div>
+
+    <h2>❓ よくある質問</h2>
+
+    <h3>1) BeanFlow は Beancount ファイルが必須ですか？</h3>
+    <p><strong>いいえ。</strong> BeanFlow は独立した複式簿記アプリです。Beancount は任意のインポート/エクスポート用途のみで、日常利用では .bean を意識する必要はありません。</p>
+
+    <h3>2) 対応プラットフォームは？</h3>
+    <ul>
+      <li>iOS（iPhone）</li>
+      <li>iPadOS</li>
+      <li>macOS</li>
+      <li>watchOS（サマリーの素早い確認）</li>
+    </ul>
+
+    <h3>3) Apple Watch はなぜサマリー中心？</h3>
+    <p>Watch は「すばやい確認」に特化しています（収入・支出・投資損益・負債など）。詳細編集や分析は iPhone/iPad/Mac を推奨します。</p>
+
+    <h3>4) データの安全性は？</h3>
+    <p>台帳データは端末内、または（有効化した場合）あなたの iCloud プライベートデータベースに保存されます。BeanFlow は財務データを収集・アップロード・分析しません。</p>
+
+    <h3>5) CSV / Beancount へのエクスポートは？</h3>
+    <p>対応しています。CSV は Excel/Numbers/Sheets で利用可能。Beancount は単一ファイル／複数ファイルでのエクスポートに対応します。</p>
+
+    <p><a href="privacy.html">プライバシーポリシー →</a></p>
+  </section>
+
   <footer>© Kun Yang · All rights reserved</footer>
 </main>
 
 <script>
   (function () {
     const KEY = "beanflow_lang";
-    const btnZh = document.getElementById("btn-zh");
-    const btnEn = document.getElementById("btn-en");
+    const btns = {
+      "zh-Hans": document.getElementById("btn-zh-hans"),
+      "en": document.getElementById("btn-en"),
+      "zh-Hant": document.getElementById("btn-zh-hant"),
+      "ja": document.getElementById("btn-ja"),
+    };
     const sections = document.querySelectorAll("[data-lang]");
+    const supported = new Set(["zh-Hans", "en", "zh-Hant", "ja"]);
+
+    function normalize(lang) {
+      const l = (lang || "").toLowerCase();
+      if (l.startsWith("zh-hant") || l.startsWith("zh-tw") || l.startsWith("zh-hk") || l.startsWith("zh-mo")) return "zh-Hant";
+      if (l.startsWith("zh")) return "zh-Hans";
+      if (l.startsWith("ja")) return "ja";
+      return "en";
+    }
 
     function setLang(lang) {
+      if (!supported.has(lang)) lang = "en";
       localStorage.setItem(KEY, lang);
       sections.forEach(s => s.classList.toggle("active", s.getAttribute("data-lang") === lang));
-      btnZh.setAttribute("aria-pressed", lang === "zh");
-      btnEn.setAttribute("aria-pressed", lang === "en");
-      document.documentElement.lang = (lang === "zh") ? "zh-CN" : "en";
+      Object.entries(btns).forEach(([k, el]) => el && el.setAttribute("aria-pressed", k === lang));
+      document.documentElement.lang =
+        (lang === "zh-Hans") ? "zh-CN" :
+        (lang === "zh-Hant") ? "zh-Hant" :
+        (lang === "ja") ? "ja" : "en";
     }
 
     const saved = localStorage.getItem(KEY);
-    const prefersZh = (navigator.language || "").toLowerCase().startsWith("zh");
-    setLang(saved || (prefersZh ? "zh" : "en"));
+    const browserLang = normalize(navigator.language);
+    setLang(saved || browserLang);
 
-    btnZh.addEventListener("click", () => setLang("zh"));
-    btnEn.addEventListener("click", () => setLang("en"));
+    Object.entries(btns).forEach(([k, el]) => {
+      if (!el) return;
+      el.addEventListener("click", () => setLang(k));
+    });
   })();
 </script>
 </body>
