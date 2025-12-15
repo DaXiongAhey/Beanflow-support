@@ -14,8 +14,8 @@
     h1{ font-size:2.0rem; margin:0 0 6px; line-height:1.2; }
     h2{ margin:22px 0 8px; font-size:1.25rem; }
     a{ color:var(--accent); text-decoration:none; }
-    .topbar{ display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:18px; padding-bottom:14px; border-bottom:1px solid var(--border); }
-    .lang{ display:flex; gap:8px; }
+    .topbar{ display:flex; align-items:flex-start; justify-content:space-between; gap:12px; margin-bottom:18px; padding-bottom:14px; border-bottom:1px solid var(--border); flex-wrap:wrap; }
+    .lang{ display:flex; gap:8px; flex-wrap:wrap; }
     .btn{
       appearance:none; border:1px solid var(--border); background:transparent; color:var(--fg);
       padding:8px 10px; border-radius:10px; cursor:pointer; font-size:.95rem;
@@ -26,6 +26,7 @@
     footer{ margin-top:60px; color:var(--muted); font-size:.9rem; }
     [data-lang]{ display:none; }
     [data-lang].active{ display:block; }
+    ul{ padding-left: 18px; }
   </style>
 </head>
 <body>
@@ -37,13 +38,15 @@
       <p><a href="index.html">← Back / 返回支持页</a></p>
     </div>
     <div class="lang" role="group" aria-label="Language Switch">
-      <button class="btn" id="btn-zh" aria-pressed="false">中文</button>
+      <button class="btn" id="btn-zh-hans" aria-pressed="false">简体中文</button>
       <button class="btn" id="btn-en" aria-pressed="false">EN</button>
+      <button class="btn" id="btn-zh-hant" aria-pressed="false">繁體中文</button>
+      <button class="btn" id="btn-ja" aria-pressed="false">日本語</button>
     </div>
   </div>
 
-  <!-- 中文 -->
-  <section data-lang="zh">
+  <!-- 简体中文 -->
+  <section data-lang="zh-Hans">
     <div class="card">
       <p><strong>BeanFlow</strong> 高度重视用户隐私与数据安全。本政策说明我们如何处理信息，以及我们不会做什么。</p>
     </div>
@@ -108,30 +111,114 @@
     <p>If you have questions, contact: <a href="mailto:yangkunkun686@gmail.com">yangkunkun686@gmail.com</a></p>
   </section>
 
+  <!-- 繁體中文 -->
+  <section data-lang="zh-Hant">
+    <div class="card">
+      <p><strong>BeanFlow</strong> 非常重視使用者隱私與資料安全。本政策說明我們如何處理資訊，以及我們不會做什麼。</p>
+    </div>
+
+    <h2>1. 我們收集哪些資訊？</h2>
+    <p>BeanFlow <strong>不會收集</strong>任何可識別個人身分的資訊，也不會進行廣告追蹤或使用者画像。</p>
+
+    <h2>2. 帳本資料如何儲存？</h2>
+    <p><strong>本機儲存：</strong>預設僅儲存在你的裝置本地。</p>
+    <p><strong>iCloud 同步（選用）：</strong>若你在設定中啟用 iCloud，同步資料會儲存在你個人的 <strong>CloudKit 私有資料庫</strong>。僅你的 Apple ID 可存取，BeanFlow 無法讀取或分析你的帳本內容。</p>
+
+    <h2>3. Beancount / CSV 檔案</h2>
+    <p>匯入/匯出的 Beancount 與 CSV 檔案僅在本機處理，不會上傳至任何伺服器。</p>
+
+    <h2>4. 第三方服務</h2>
+    <p>BeanFlow 不使用第三方廣告/統計 SDK。可能使用的系統服務包括：</p>
+    <ul>
+      <li>Apple iCloud / CloudKit（僅在你啟用同步時）</li>
+      <li>Apple StoreKit（用於一次性買斷解鎖與恢復購買）</li>
+    </ul>
+
+    <h2>5. 資料安全</h2>
+    <p>我們依賴 Apple 平台的安全機制（沙盒、加密、系統權限控制）。若你啟用應用鎖，可使用 Face ID/Touch ID 或應用內密碼。</p>
+
+    <h2>6. 兒童隱私</h2>
+    <p>BeanFlow 並非為 13 歲以下兒童設計，也不會主動收集兒童資訊。</p>
+
+    <h2>7. 聯絡我們</h2>
+    <p>如對隱私政策有疑問，請聯絡：<a href="mailto:yangkunkun686@gmail.com">yangkunkun686@gmail.com</a></p>
+  </section>
+
+  <!-- 日本語 -->
+  <section data-lang="ja">
+    <div class="card">
+      <p><strong>BeanFlow</strong> はユーザーのプライバシーとデータ安全性を最優先に考えます。本ポリシーでは、当社が情報をどのように扱うか、また何をしないかを説明します。</p>
+    </div>
+
+    <h2>1. 収集する情報</h2>
+    <p>BeanFlow は個人を特定できる情報を <strong>収集しません</strong>。広告トラッキングやユーザープロファイリングも行いません。</p>
+
+    <h2>2. データの保存方法</h2>
+    <p><strong>端末内：</strong>台帳データはデフォルトで端末内に保存されます。</p>
+    <p><strong>iCloud 同期（任意）：</strong>有効にした場合、データはあなたの <strong>CloudKit プライベートデータベース</strong> に保存されます。アクセスできるのはあなたの Apple ID のみで、BeanFlow は台帳内容を読み取ったり分析したりできません。</p>
+
+    <h2>3. Beancount / CSV ファイル</h2>
+    <p>Beancount / CSV のインポート・エクスポートは端末上で処理され、いかなるサーバーにもアップロードされません。</p>
+
+    <h2>4. サードパーティサービス</h2>
+    <p>BeanFlow は第三者の広告/分析 SDK を使用しません。利用され得るシステムサービスは以下です：</p>
+    <ul>
+      <li>Apple iCloud / CloudKit（同期を有効にした場合のみ）</li>
+      <li>Apple StoreKit（買い切り購入・購入の復元）</li>
+    </ul>
+
+    <h2>5. セキュリティ</h2>
+    <p>Apple プラットフォームのセキュリティ（サンドボックス、暗号化、システム保護）に基づきます。App ロックを有効にすると、Face ID/Touch ID またはアプリ内パスコードを利用できます。</p>
+
+    <h2>6. 子どものプライバシー</h2>
+    <p>BeanFlow は 13 歳未満の子ども向けに設計されておらず、子どものデータを意図的に収集しません。</p>
+
+    <h2>7. お問い合わせ</h2>
+    <p>ご質問がある場合は以下までご連絡ください：<a href="mailto:yangkunkun686@gmail.com">yangkunkun686@gmail.com</a></p>
+  </section>
+
   <footer>© Kun Yang · All rights reserved</footer>
 </main>
 
 <script>
   (function () {
     const KEY = "beanflow_lang";
-    const btnZh = document.getElementById("btn-zh");
-    const btnEn = document.getElementById("btn-en");
+    const btns = {
+      "zh-Hans": document.getElementById("btn-zh-hans"),
+      "en": document.getElementById("btn-en"),
+      "zh-Hant": document.getElementById("btn-zh-hant"),
+      "ja": document.getElementById("btn-ja"),
+    };
     const sections = document.querySelectorAll("[data-lang]");
+    const supported = new Set(["zh-Hans", "en", "zh-Hant", "ja"]);
+
+    function normalize(lang) {
+      const l = (lang || "").toLowerCase();
+      if (l.startsWith("zh-hant") || l.startsWith("zh-tw") || l.startsWith("zh-hk") || l.startsWith("zh-mo")) return "zh-Hant";
+      if (l.startsWith("zh")) return "zh-Hans";
+      if (l.startsWith("ja")) return "ja";
+      return "en";
+    }
 
     function setLang(lang) {
+      if (!supported.has(lang)) lang = "en";
       localStorage.setItem(KEY, lang);
       sections.forEach(s => s.classList.toggle("active", s.getAttribute("data-lang") === lang));
-      btnZh.setAttribute("aria-pressed", lang === "zh");
-      btnEn.setAttribute("aria-pressed", lang === "en");
-      document.documentElement.lang = (lang === "zh") ? "zh-CN" : "en";
+      Object.entries(btns).forEach(([k, el]) => el && el.setAttribute("aria-pressed", k === lang));
+      document.documentElement.lang =
+        (lang === "zh-Hans") ? "zh-CN" :
+        (lang === "zh-Hant") ? "zh-Hant" :
+        (lang === "ja") ? "ja" : "en";
     }
 
     const saved = localStorage.getItem(KEY);
-    const prefersZh = (navigator.language || "").toLowerCase().startsWith("zh");
-    setLang(saved || (prefersZh ? "zh" : "en"));
+    const browserLang = normalize(navigator.language);
+    setLang(saved || browserLang);
 
-    btnZh.addEventListener("click", () => setLang("zh"));
-    btnEn.addEventListener("click", () => setLang("en"));
+    Object.entries(btns).forEach(([k, el]) => {
+      if (!el) return;
+      el.addEventListener("click", () => setLang(k));
+    });
   })();
 </script>
 </body>
