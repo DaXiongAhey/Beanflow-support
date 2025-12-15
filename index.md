@@ -10,8 +10,8 @@ If you need help with BeanFlow, you’re in the right place.
 
 如需帮助、反馈 Bug 或提出功能建议，请通过以下方式联系我们：
 
-- 📧 Email: **support@beanflow.app**
-- 🐛 GitHub Issues（如有）：https://github.com/yourname/beanflow/issues
+- 📧 Email: **yangkunkun686@gmail.com**
+- 🐛 GitHub Issues（如有）：https://github.com/daxiongahey/beanflow-support/issues
 
 我们通常会在 **1–3 个工作日内回复**。
 
